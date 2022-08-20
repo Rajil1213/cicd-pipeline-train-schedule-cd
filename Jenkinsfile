@@ -11,8 +11,7 @@ pipeline {
         stage('DeployToStaging') {
             steps {
                 echo 'Building on the staging server first for testing'
-                sshPublisher 
-                    failOnError: true,
+                sshPublisher failOnError: true,
                     publishers: [
                         sshPublisherDesc(
                             configName: 'staging', 
