@@ -11,7 +11,7 @@ pipeline {
         stage('DeployToStaging') {
             steps {
                 echo 'Building on the staging server first for testing'
-                sshPublisher failOnError: true, publishers: [sshPublisherDesc(configName: 'staging', transfers: [sshTransfer(excludes: '', execCommand: 'systemctl stop train-schedule && rm -rf /opt/train-schedule && unzip /tmp/trainSchedule.zip && systemctl start trains-schedule', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/tmp', remoteDirectorySDF: false, removePrefix: 'dist', sourceFiles: 'dist/trainSchedule.zip')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+                sshPublisher failOnError: true, publishers: [sshPublisherDesc(configName: 'staging', transfers: [sshTransfer(excludes: '', execCommand: 'systemctl stop train-schedule && rm -rf /opt/train-schedule && unzip /tmp/trainSchedule.zip && systemctl start trains-schedule', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/tmp', remoteDirectorySDF: false, removePrefix: 'dist', sourceFiles: 'dist/trainSchedule.zip')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)]
             }
         }
         stage('DeployToProduction') {
