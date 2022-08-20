@@ -20,7 +20,7 @@ pipeline {
                                     encryptedPassphrase: $password, 
                                     key: '', 
                                     keyPath: '', 
-                                    username: $username]
+                                    username: $username],
                                 transfers: [
                                     sshTransfer(
                                         excludes: '', 
@@ -51,7 +51,7 @@ pipeline {
                                     encryptedPassphrase: '{AQAAABAAAAAQtZl73Q0cdiOR5myHRwcaY3xyBRI+pP2b9si+f/AF3FM=}', 
                                     key: '', 
                                     keyPath: '', 
-                                    username: 'deploy']
+                                    username: 'deploy'],
                                 transfers: [
                                     sshTransfer(
                                         excludes: '', 
