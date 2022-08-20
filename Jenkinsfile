@@ -11,16 +11,16 @@ pipeline {
         stage('DeployToStaging') {
             steps {
                 echo 'Building on the staging server first for testing'
-                withCredentials([usernamePassword(credentialsId: 'webserver_login', passwordVariable: 'password', usernameVariable: 'username')]) {
+                withCredentials([usernamePassword(credentialsId: 'webserver_login', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
                     sshPublisher failOnError: true,
                         publishers: [
                             sshPublisherDesc(
                                 configName: 'staging', 
                                 sshCredentials: [
-                                    encryptedPassphrase: $password, 
+                                    encryptedPassphrase: $PASSWORD, 
                                     key: '', 
                                     keyPath: '', 
-                                    username: $username],
+                                    username: $USERNAME],
                                 transfers: [
                                     sshTransfer(
                                         excludes: '', 
